@@ -22,26 +22,35 @@ import {
   RecyclingApiResult,
   BuyGrandExchangeItemApiBody,
   BuyGrandExchangeItemApiResult,
-  SellGrandExchangeItemApiBody,
-  SellGrandExchangeItemApiResult,
   DeleteItemApiBody,
   DeleteItemApiResult,
   AcceptTaskApiResult,
   CompleteTaskApiResult,
-  ExchangeTaskApiResult,
   GetLogsApiResult,
   GetLogsApiQuery,
-  GetMyCharactersApiResult,
   CancelTaskApiResult,
   BuyExpansionApiResult,
+  CreateGrandExchangeSellOrderApiBody,
+  CreateGrandExchangeSellOrderApiResult,
+  TradeTaskApiResult,
+  ExchangeTaskApiResult,
+  GetCharactersApiResult,
+  RestApiResult,
+  UseItemApiBody,
+  UseItemApiResult,
 } from './types/api-schema-bindings.types';
 
 export class ArtifactsMyCharactersApi {
-  constructor(private readonly httpClient: ArtifactsHttpClient) {}
+  constructor(private readonly httpClient: ArtifactsHttpClient) { }
 
   /** Moves a character on the map using the map's X and Y position. */
   public move(name: string, body: MoveApiBody): Promise<MoveApiResult> {
     return this.httpClient.post<MoveApiResult>(`/my/${name}/action/move`, { body, isSecure: true });
+  }
+
+  /** Recovers hit points by resting. (1 second per 5 HP, minimum 3 seconds). */
+  public rest(name: string): Promise<RestApiResult> {
+    return this.httpClient.post<RestApiResult>(`/my/${name}/action/rest`, { isSecure: true });
   }
 
   /** Equip an item on your character. */
@@ -57,6 +66,14 @@ export class ArtifactsMyCharactersApi {
     return this.httpClient.post<UnequipItemApiResult>(`/my/${name}/action/unequip`, {
       body,
       isSecure: true,
+    });
+  }
+
+  /** Use an item as a consumable. */
+  public useItem(name: string, body: UseItemApiBody): Promise<UseItemApiResult> {
+    return this.httpClient.post<UseItemApiResult>(`/my/${name}/action/use`, {
+      body: body,
+      isSecure: true
     });
   }
 
@@ -138,15 +155,18 @@ export class ArtifactsMyCharactersApi {
   }
 
   /** Sell an item at the Grand Exchange on the character's map. */
-  public sellGrandExchangeItem(
+  public createGrandExchangeSellOrder(
     name: string,
-    body: SellGrandExchangeItemApiBody,
-  ): Promise<SellGrandExchangeItemApiResult> {
-    return this.httpClient.post<SellGrandExchangeItemApiResult>(`/my/${name}/action/ge/sell`, {
+    body: CreateGrandExchangeSellOrderApiBody,
+  ): Promise<CreateGrandExchangeSellOrderApiResult> {
+    return this.httpClient.post<CreateGrandExchangeSellOrderApiResult>(`/my/${name}/action/ge/sell`, {
       body,
       isSecure: true,
     });
   }
+
+  /** Cancel a sell order at the Grand Exchange on the character's map. */
+  // TODO
 
   /** Accepting a new task. */
   public acceptTask(name: string): Promise<AcceptTaskApiResult> {
@@ -172,6 +192,9 @@ export class ArtifactsMyCharactersApi {
     });
   }
 
+  /** Trading items with a Tasks Master. */
+  // TODO
+
   /** Delete an item from your character's inventory. */
   public deleteItem(name: string, body: DeleteItemApiBody): Promise<DeleteItemApiResult> {
     return this.httpClient.post<DeleteItemApiResult>(`/my/${name}/action/delete`, {
@@ -189,8 +212,8 @@ export class ArtifactsMyCharactersApi {
   }
 
   /** List of your characters. */
-  public getAll(): Promise<GetMyCharactersApiResult> {
-    return this.httpClient.get<GetMyCharactersApiResult>(`/my/characters`, {
+  public getAll(): Promise<GetCharactersApiResult> {
+    return this.httpClient.get<GetCharactersApiResult>(`/my/characters`, {
       isSecure: true,
     });
   }

@@ -24,6 +24,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/my/{name}/action/rest': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Action Rest
+     * @description Recovers hit points by resting. (1 second per 5 HP, minimum 3 seconds)
+     */
+    post: operations['action_rest_my__name__action_rest_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/my/{name}/action/equip': {
     parameters: {
       query?: never;
@@ -58,6 +78,26 @@ export interface paths {
      * @description Unequip an item on your character.
      */
     post: operations['action_unequip_item_my__name__action_unequip_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/my/{name}/action/use': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Action Use Item
+     * @description Use an item as a consumable.
+     */
+    post: operations['action_use_item_my__name__action_use_post'];
     delete?: never;
     options?: never;
     head?: never;
@@ -124,6 +164,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/my/{name}/action/bank/deposit/gold': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Action Deposit Bank Gold
+     * @description Deposit gold in a bank on the character's map.
+     */
+    post: operations['action_deposit_bank_gold_my__name__action_bank_deposit_gold_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/my/{name}/action/bank/deposit': {
     parameters: {
       query?: never;
@@ -138,46 +198,6 @@ export interface paths {
      * @description Deposit an item in a bank on the character's map.
      */
     post: operations['action_deposit_bank_my__name__action_bank_deposit_post'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/my/{name}/action/bank/deposit/gold': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * Action Deposit Bank Gold
-     * @description Deposit golds in a bank on the character's map.
-     */
-    post: operations['action_deposit_bank_gold_my__name__action_bank_deposit_gold_post'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/my/{name}/action/recycling': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * Action Recycling
-     * @description Recyling an item. The character must be on a map with a workshop (only for equipments and weapons).
-     */
-    post: operations['action_recycling_my__name__action_recycling_post'];
     delete?: never;
     options?: never;
     head?: never;
@@ -224,46 +244,6 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/my/{name}/action/ge/buy': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * Action Ge Buy Item
-     * @description Buy an item at the Grand Exchange on the character's map.
-     */
-    post: operations['action_ge_buy_item_my__name__action_ge_buy_post'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/my/{name}/action/ge/sell': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * Action Ge Sell Item
-     * @description Sell an item at the Grand Exchange on the character's map.
-     */
-    post: operations['action_ge_sell_item_my__name__action_ge_sell_post'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
   '/my/{name}/action/bank/buy_expansion': {
     parameters: {
       query?: never;
@@ -284,7 +264,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/my/{name}/action/task/new': {
+  '/my/{name}/action/recycling': {
     parameters: {
       query?: never;
       header?: never;
@@ -294,10 +274,70 @@ export interface paths {
     get?: never;
     put?: never;
     /**
-     * Action Accept New Task
-     * @description Accepting a new task.
+     * Action Recycling
+     * @description Recycling an item. The character must be on a map with a workshop (only for equipments and weapons).
      */
-    post: operations['action_accept_new_task_my__name__action_task_new_post'];
+    post: operations['action_recycling_my__name__action_recycling_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/my/{name}/action/grandexchange/buy': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Action Ge Buy Item
+     * @description Buy an item at the Grand Exchange on the character's map.
+     */
+    post: operations['action_ge_buy_item_my__name__action_grandexchange_buy_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/my/{name}/action/grandexchange/sell': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Action Ge Create Sell Order
+     * @description Create a sell order at the Grand Exchange on the character's map. Please note that a 5% sales tax is charged.
+     */
+    post: operations['action_ge_create_sell_order_my__name__action_grandexchange_sell_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/my/{name}/action/grandexchange/cancel': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Action Ge Cancel Sell Order
+     * @description Cancel a sell order at the Grand Exchange on the character's map.
+     */
+    post: operations['action_ge_cancel_sell_order_my__name__action_grandexchange_cancel_post'];
     delete?: never;
     options?: never;
     head?: never;
@@ -335,9 +375,49 @@ export interface paths {
     put?: never;
     /**
      * Action Task Exchange
-     * @description Exchange 3 tasks coins for a random reward. Rewards are exclusive resources for crafting  items.
+     * @description Exchange 6 tasks coins for a random reward. Rewards are exclusive items or resources.
      */
     post: operations['action_task_exchange_my__name__action_task_exchange_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/my/{name}/action/task/new': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Action Accept New Task
+     * @description Accepting a new task.
+     */
+    post: operations['action_accept_new_task_my__name__action_task_new_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/my/{name}/action/task/trade': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Action Task Trade
+     * @description Trading items with a Tasks Master.
+     */
+    post: operations['action_task_trade_my__name__action_task_trade_post'];
     delete?: never;
     options?: never;
     head?: never;
@@ -464,6 +544,66 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/my/grandexchange/orders': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Ge Sell Orders
+     * @description Fetch your sell orders details.
+     */
+    get: operations['get_ge_sell_orders_my_grandexchange_orders_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/my/grandexchange/history': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Ge Sell History
+     * @description Fetch your sales history of the last 7 days.
+     */
+    get: operations['get_ge_sell_history_my_grandexchange_history_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/my/details': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Account Details
+     * @description Fetch account details.
+     */
+    get: operations['get_account_details_my_details_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/my/change_password': {
     parameters: {
       query?: never;
@@ -524,26 +664,6 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/characters': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get All Characters
-     * @description Fetch characters details.
-     */
-    get: operations['get_all_characters_characters_get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
   '/characters/{name}': {
     parameters: {
       query?: never;
@@ -556,26 +676,6 @@ export interface paths {
      * @description Retrieve the details of a character.
      */
     get: operations['get_character_characters__name__get'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/characters/{name}/achievements': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Get Character Achievements
-     * @description Retrieve the details of a character.
-     */
-    get: operations['get_character_achievements_characters__name__achievements_get'];
     put?: never;
     post?: never;
     delete?: never;
@@ -744,6 +844,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/events/active': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get All Active Events
+     * @description Fetch active events details.
+     */
+    get: operations['get_all_active_events_events_active_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/events': {
     parameters: {
       query?: never;
@@ -764,7 +884,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/ge': {
+  '/grandexchange/history/{code}': {
     parameters: {
       query?: never;
       header?: never;
@@ -772,10 +892,10 @@ export interface paths {
       cookie?: never;
     };
     /**
-     * Get All Ge Items
-     * @description Fetch Grand Exchange items details.
+     * Get Ge Sell History
+     * @description Fetch the sales history of the item for the last 7 days.
      */
-    get: operations['get_all_ge_items_ge_get'];
+    get: operations['get_ge_sell_history_grandexchange_history__code__get'];
     put?: never;
     post?: never;
     delete?: never;
@@ -784,7 +904,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/ge/{code}': {
+  '/grandexchange/orders': {
     parameters: {
       query?: never;
       header?: never;
@@ -792,10 +912,110 @@ export interface paths {
       cookie?: never;
     };
     /**
-     * Get Ge Item
-     * @description Retrieve the details of a Grand Exchange item.
+     * Get Ge Sell Orders
+     * @description Fetch all sell orders.
      */
-    get: operations['get_ge_item_ge__code__get'];
+    get: operations['get_ge_sell_orders_grandexchange_orders_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/grandexchange/orders/{id}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Ge Sell Order
+     * @description Retrieve the sell order of a item.
+     */
+    get: operations['get_ge_sell_order_grandexchange_orders__id__get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/tasks/list': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get All Tasks
+     * @description Fetch the list of all tasks.
+     */
+    get: operations['get_all_tasks_tasks_list_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/tasks/list/{code}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Task
+     * @description Retrieve the details of a task.
+     */
+    get: operations['get_task_tasks_list__code__get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/tasks/rewards': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get All Tasks Rewards
+     * @description Fetch the list of all tasks rewards. To obtain these rewards, you must exchange 6 task coins with a tasks master.
+     */
+    get: operations['get_all_tasks_rewards_tasks_rewards_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/tasks/rewards/{code}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Tasks Reward
+     * @description Retrieve the details of a tasks reward.
+     */
+    get: operations['get_tasks_reward_tasks_rewards__code__get'];
     put?: never;
     post?: never;
     delete?: never;
@@ -844,7 +1064,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  '/leaderboard': {
+  '/leaderboard/characters': {
     parameters: {
       query?: never;
       header?: never;
@@ -852,10 +1072,30 @@ export interface paths {
       cookie?: never;
     };
     /**
-     * Get Leaderboard
+     * Get Characters Leaderboard
      * @description Fetch leaderboard details.
      */
-    get: operations['get_leaderboard_leaderboard_get'];
+    get: operations['get_characters_leaderboard_leaderboard_characters_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/leaderboard/accounts': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Accounts Leaderboard
+     * @description Fetch leaderboard details.
+     */
+    get: operations['get_accounts_leaderboard_leaderboard_accounts_get'];
     put?: never;
     post?: never;
     delete?: never;
@@ -873,11 +1113,48 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    /**
-     * Create Account
-     * @description Create an account.
-     */
+    /** Create Account */
     post: operations['create_account_accounts_create_post'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/accounts/{account}/achievements': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Account Achievements
+     * @description Retrieve the achievements of a account.
+     */
+    get: operations['get_account_achievements_accounts__account__achievements_get'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/accounts/{account}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Account
+     * @description Retrieve the details of a character.
+     */
+    get: operations['get_account_accounts__account__get'];
+    put?: never;
+    post?: never;
     delete?: never;
     options?: never;
     head?: never;
@@ -928,6 +1205,135 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
+    /** AccountAchievementSchema */
+    AccountAchievementSchema: {
+      /**
+       * Name
+       * @description Name of the achievement.
+       */
+      name: string;
+      /**
+       * Code
+       * @description Code of the achievement.
+       */
+      code: string;
+      /**
+       * Description
+       * @description Description of the achievement.
+       */
+      description: string;
+      /**
+       * Points
+       * @description Points of the achievement. Used for the leaderboard.
+       */
+      points: number;
+      /** @description Type of achievement. */
+      type: components['schemas']['AchievementType'];
+      /**
+       * Target
+       * @description Target of the achievement.
+       */
+      target: string | null;
+      /**
+       * Total
+       * @description Total to do.
+       */
+      total: number;
+      /** @description Rewards. */
+      rewards: components['schemas']['AchievementRewardsSchema'];
+      /**
+       * Current
+       * @description Current progress.
+       */
+      current: number;
+      /**
+       * Completed At
+       * @description Completed at.
+       */
+      completed_at: string | null;
+    };
+    /** AccountDetails */
+    AccountDetails: {
+      /**
+       * Username
+       * @description Username.
+       */
+      username: string;
+      /**
+       * Subscribed
+       * @description Subscribed for the current season.
+       */
+      subscribed: boolean;
+      /** @description Member status. */
+      status: components['schemas']['AccountStatus'];
+      /**
+       * Badges
+       * @description Account badges.
+       */
+      badges?: unknown[] | null;
+      /**
+       * Achievements Points
+       * @description Achievement points.
+       */
+      achievements_points: number;
+      /**
+       * Banned
+       * @description Banned.
+       */
+      banned: boolean;
+      /**
+       * Ban Reason
+       * @description Ban reason.
+       */
+      ban_reason?: string;
+    };
+    /** AccountDetailsSchema */
+    AccountDetailsSchema: {
+      data: components['schemas']['AccountDetails'];
+    };
+    /** AccountLeaderboardSchema */
+    AccountLeaderboardSchema: {
+      /**
+       * Position
+       * @description Position in the leaderboard.
+       */
+      position: number;
+      /**
+       * Account
+       * @description Account name.
+       */
+      account: string;
+      /** @description Member status. */
+      status: components['schemas']['AccountStatus'];
+      /**
+       * Achievements Points
+       * @description Achievements points.
+       */
+      achievements_points: number;
+    };
+    /**
+     * AccountLeaderboardType
+     * @constant
+     */
+    AccountLeaderboardType: 'achievements_points';
+    'AccountLeaderboardType_a-zA-Z0-9_-_____': components['schemas']['AccountLeaderboardType'];
+    /**
+     * AccountStatus
+     * @enum {string}
+     */
+    AccountStatus: 'standard' | 'founder' | 'gold_founder' | 'vip_founder';
+    /** AchievementResponseSchema */
+    AchievementResponseSchema: {
+      data: components['schemas']['AchievementSchema'];
+    };
+    /** AchievementRewardsSchema */
+    AchievementRewardsSchema: {
+      /**
+       * Gold
+       * @description Gold rewards.
+       */
+      gold: number;
+    };
     /** AchievementSchema */
     AchievementSchema: {
       /**
@@ -950,20 +1356,8 @@ export interface components {
        * @description Points of the achievement. Used for the leaderboard.
        */
       points: number;
-      /**
-       * Type
-       * @description Type of achievement.
-       * @enum {string}
-       */
-      type:
-        | 'combat_kill'
-        | 'combat_drop'
-        | 'combat_level'
-        | 'gathering'
-        | 'crafting'
-        | 'recycling'
-        | 'task'
-        | 'other';
+      /** @description Type of achievement. */
+      type: components['schemas']['AchievementType'];
       /**
        * Target
        * @description Target of the achievement.
@@ -974,17 +1368,47 @@ export interface components {
        * @description Total to do.
        */
       total: number;
-      /**
-       * Current
-       * @description Current progress.
-       */
-      current: number;
-      /**
-       * Completed At
-       * @description Completed at.
-       */
-      completed_at: string | null;
+      /** @description Rewards. */
+      rewards: components['schemas']['AchievementRewardsSchema'];
     };
+    /**
+     * AchievementType
+     * @enum {string}
+     */
+    AchievementType:
+      | 'combat_kill'
+      | 'combat_drop'
+      | 'combat_level'
+      | 'gathering'
+      | 'crafting'
+      | 'recycling'
+      | 'task'
+      | 'other';
+    'AchievementType_a-zA-Z0-9_-_____': components['schemas']['AchievementType'];
+    /**
+     * ActionType
+     * @enum {string}
+     */
+    ActionType:
+      | 'movement'
+      | 'fight'
+      | 'crafting'
+      | 'gathering'
+      | 'buy_ge'
+      | 'sell_ge'
+      | 'cancel_ge'
+      | 'delete_item'
+      | 'deposit'
+      | 'withdraw'
+      | 'deposit_gold'
+      | 'withdraw_gold'
+      | 'equip'
+      | 'unequip'
+      | 'task'
+      | 'recycling'
+      | 'rest'
+      | 'use'
+      | 'buy_bank_expansion';
     /** ActiveEventSchema */
     ActiveEventSchema: {
       /**
@@ -992,6 +1416,11 @@ export interface components {
        * @description Name of the event.
        */
       name: string;
+      /**
+       * Code
+       * @description Code of the event. This is the event's unique identifier (ID).
+       */
+      code: string;
       /** @description Map of the event. */
       map: components['schemas']['MapSchema'];
       /**
@@ -1043,12 +1472,8 @@ export interface components {
        * @description Your desired character name. It's unique and all players can see it.
        */
       name: string;
-      /**
-       * Skin
-       * @description Your desired skin.
-       * @enum {string}
-       */
-      skin: 'men1' | 'men2' | 'men3' | 'women1' | 'women2' | 'women3';
+      /** @description Your desired skin. */
+      skin: components['schemas']['CharacterSkin'];
     };
     /** AnnouncementSchema */
     AnnouncementSchema: {
@@ -1143,57 +1568,6 @@ export interface components {
        */
       gold: number;
     };
-    /** BaseAchievementSchema */
-    BaseAchievementSchema: {
-      /**
-       * Name
-       * @description Name of the achievement.
-       */
-      name: string;
-      /**
-       * Code
-       * @description Code of the achievement.
-       */
-      code: string;
-      /**
-       * Description
-       * @description Description of the achievement.
-       */
-      description: string;
-      /**
-       * Points
-       * @description Points of the achievement. Used for the leaderboard.
-       */
-      points: number;
-      /**
-       * Type
-       * @description Type of achievement.
-       * @enum {string}
-       */
-      type:
-        | 'combat_kill'
-        | 'combat_drop'
-        | 'combat_level'
-        | 'gathering'
-        | 'crafting'
-        | 'recycling'
-        | 'task'
-        | 'other';
-      /**
-       * Target
-       * @description Target of the achievement.
-       */
-      target: string | null;
-      /**
-       * Total
-       * @description Total to do.
-       */
-      total: number;
-    };
-    /** BaseachievementResponseSchema */
-    BaseachievementResponseSchema: {
-      data: components['schemas']['BaseAchievementSchema'];
-    };
     /** BlockedHitsSchema */
     BlockedHitsSchema: {
       /**
@@ -1225,10 +1599,15 @@ export interface components {
     /** ChangePassword */
     ChangePassword: {
       /**
-       * Password
+       * Current Password
        * @description Your password.
        */
-      password: string;
+      current_password: string;
+      /**
+       * New Password
+       * @description New password.
+       */
+      new_password: string;
     };
     /** CharacterFightDataSchema */
     CharacterFightDataSchema: {
@@ -1246,20 +1625,25 @@ export interface components {
     /** CharacterLeaderboardSchema */
     CharacterLeaderboardSchema: {
       /**
+       * Position
+       * @description Position in the leaderboard.
+       */
+      position: number;
+      /**
        * Name
        * @description Character name.
        */
       name: string;
       /**
+       * Account
+       * @description Account name.
+       */
+      account: string;
+      /**
        * Skin
        * @description Character skin code.
        */
       skin: string;
-      /**
-       * Achievements Points
-       * @description Achievements points.
-       */
-      achievements_points: number;
       /**
        * Level
        * @description Combat level.
@@ -1341,11 +1725,37 @@ export interface components {
        */
       cooking_total_xp: number;
       /**
+       * Alchemy Level
+       * @description Alchemy level.
+       */
+      alchemy_level: number;
+      /**
+       * Alchemy Total Xp
+       * @description Alchemy total xp.
+       */
+      alchemy_total_xp: number;
+      /**
        * Gold
-       * @description The numbers of golds on this character.
+       * @description The numbers of gold on this character.
        */
       gold: number;
     };
+    /**
+     * CharacterLeaderboardType
+     * @enum {string}
+     */
+    CharacterLeaderboardType:
+      | 'combat'
+      | 'woodcutting'
+      | 'mining'
+      | 'fishing'
+      | 'weaponcrafting'
+      | 'gearcrafting'
+      | 'jewelrycrafting'
+      | 'cooking'
+      | 'alchemy'
+      | 'gold';
+    'CharacterLeaderboardType_a-zA-Z0-9_-_____': components['schemas']['CharacterLeaderboardType'];
     /** CharacterMovementDataSchema */
     CharacterMovementDataSchema: {
       /** @description Cooldown details */
@@ -1363,6 +1773,22 @@ export interface components {
     CharacterResponseSchema: {
       data: components['schemas']['CharacterSchema'];
     };
+    /** CharacterRestDataSchema */
+    CharacterRestDataSchema: {
+      /** @description Cooldown details */
+      cooldown: components['schemas']['CooldownSchema'];
+      /**
+       * Hp Restored
+       * @description The amount of HP restored.
+       */
+      hp_restored: number;
+      /** @description Character details. */
+      character: components['schemas']['CharacterSchema'];
+    };
+    /** CharacterRestResponseSchema */
+    CharacterRestResponseSchema: {
+      data: components['schemas']['CharacterRestDataSchema'];
+    };
     /** CharacterSchema */
     CharacterSchema: {
       /**
@@ -1371,11 +1797,12 @@ export interface components {
        */
       name: string;
       /**
-       * Skin
-       * @description Character skin code.
-       * @enum {string}
+       * Account
+       * @description Account name.
        */
-      skin: 'men1' | 'men2' | 'men3' | 'women1' | 'women2' | 'women3';
+      account: string;
+      /** @description Character skin code. */
+      skin: components['schemas']['CharacterSkin'];
       /**
        * Level
        * @description Combat level.
@@ -1392,13 +1819,8 @@ export interface components {
        */
       max_xp: number;
       /**
-       * Achievements Points
-       * @description achievements points.
-       */
-      achievements_points: number;
-      /**
        * Gold
-       * @description The numbers of golds on this character.
+       * @description The numbers of gold on this character.
        */
       gold: number;
       /**
@@ -1512,10 +1934,30 @@ export interface components {
        */
       cooking_max_xp: number;
       /**
+       * Alchemy Level
+       * @description Alchemy level.
+       */
+      alchemy_level: number;
+      /**
+       * Alchemy Xp
+       * @description Alchemy XP.
+       */
+      alchemy_xp: number;
+      /**
+       * Alchemy Max Xp
+       * @description Alchemy XP required to level up the skill.
+       */
+      alchemy_max_xp: number;
+      /**
        * Hp
-       * @description Character HP.
+       * @description Character actual HP.
        */
       hp: number;
+      /**
+       * Max Hp
+       * @description Character max HP.
+       */
+      max_hp: number;
       /**
        * Haste
        * @description *Character Haste. Increase speed attack (reduce fight cooldown)
@@ -1673,25 +2115,25 @@ export interface components {
        */
       artifact3_slot: string;
       /**
-       * Consumable1 Slot
-       * @description Consumable 1 slot.
+       * Utility1 Slot
+       * @description Utility 1 slot.
        */
-      consumable1_slot: string;
+      utility1_slot: string;
       /**
-       * Consumable1 Slot Quantity
-       * @description Consumable 1 quantity.
+       * Utility1 Slot Quantity
+       * @description Utility 1 quantity.
        */
-      consumable1_slot_quantity: number;
+      utility1_slot_quantity: number;
       /**
-       * Consumable2 Slot
-       * @description Consumable 2 slot.
+       * Utility2 Slot
+       * @description Utility 2 slot.
        */
-      consumable2_slot: string;
+      utility2_slot: string;
       /**
-       * Consumable2 Slot Quantity
-       * @description Consumable 2 quantity.
+       * Utility2 Slot Quantity
+       * @description Utility 2 quantity.
        */
-      consumable2_slot_quantity: number;
+      utility2_slot_quantity: number;
       /**
        * Task
        * @description Task in progress.
@@ -1723,6 +2165,11 @@ export interface components {
        */
       inventory?: components['schemas']['InventorySlot'][];
     };
+    /**
+     * CharacterSkin
+     * @enum {string}
+     */
+    CharacterSkin: 'men1' | 'men2' | 'men3' | 'women1' | 'women2' | 'women3';
     /** CooldownSchema */
     CooldownSchema: {
       /**
@@ -1747,40 +2194,16 @@ export interface components {
        * @description The expiration of the cooldown.
        */
       expiration: string;
-      /**
-       * Reason
-       * @description The reason of the cooldown.
-       * @enum {string}
-       */
-      reason:
-        | 'movement'
-        | 'fight'
-        | 'crafting'
-        | 'gathering'
-        | 'buy_ge'
-        | 'sell_ge'
-        | 'delete_item'
-        | 'deposit_bank'
-        | 'withdraw_bank'
-        | 'equip'
-        | 'unequip'
-        | 'task'
-        | 'recycling';
+      /** @description The reason of the cooldown. */
+      reason: components['schemas']['ActionType'];
     };
     /** CraftSchema */
     CraftSchema: {
       /**
        * Skill code
        * @description Skill required to craft the item.
-       * @enum {string}
        */
-      skill?:
-        | 'weaponcrafting'
-        | 'gearcrafting'
-        | 'jewelrycrafting'
-        | 'cooking'
-        | 'woodcutting'
-        | 'mining';
+      skill?: components['schemas']['CraftSkill'];
       /**
        * Level
        * @description The skill level required to craft the item.
@@ -1797,6 +2220,19 @@ export interface components {
        */
       quantity?: number;
     };
+    /**
+     * CraftSkill
+     * @enum {string}
+     */
+    CraftSkill:
+      | 'weaponcrafting'
+      | 'gearcrafting'
+      | 'jewelrycrafting'
+      | 'cooking'
+      | 'woodcutting'
+      | 'mining'
+      | 'alchemy';
+    'CraftSkill_a-zA-Z0-9_-_____': components['schemas']['CraftSkill'];
     /** CraftingSchema */
     CraftingSchema: {
       /**
@@ -1810,6 +2246,32 @@ export interface components {
        * @default 1
        */
       quantity: number;
+    };
+    /** DataPage[AccountAchievementSchema] */
+    DataPage_AccountAchievementSchema_: {
+      /** Data */
+      data: components['schemas']['AccountAchievementSchema'][];
+      /** Total */
+      total: number | null;
+      /** Page */
+      page: number | null;
+      /** Size */
+      size: number | null;
+      /** Pages */
+      pages?: number | null;
+    };
+    /** DataPage[AccountLeaderboardSchema] */
+    DataPage_AccountLeaderboardSchema_: {
+      /** Data */
+      data: components['schemas']['AccountLeaderboardSchema'][];
+      /** Total */
+      total: number | null;
+      /** Page */
+      page: number | null;
+      /** Size */
+      size: number | null;
+      /** Pages */
+      pages?: number | null;
     };
     /** DataPage[AchievementSchema] */
     DataPage_AchievementSchema_: {
@@ -1837,19 +2299,6 @@ export interface components {
       /** Pages */
       pages?: number | null;
     };
-    /** DataPage[BaseAchievementSchema] */
-    DataPage_BaseAchievementSchema_: {
-      /** Data */
-      data: components['schemas']['BaseAchievementSchema'][];
-      /** Total */
-      total: number | null;
-      /** Page */
-      page: number | null;
-      /** Size */
-      size: number | null;
-      /** Pages */
-      pages?: number | null;
-    };
     /** DataPage[CharacterLeaderboardSchema] */
     DataPage_CharacterLeaderboardSchema_: {
       /** Data */
@@ -1863,10 +2312,10 @@ export interface components {
       /** Pages */
       pages?: number | null;
     };
-    /** DataPage[CharacterSchema] */
-    DataPage_CharacterSchema_: {
+    /** DataPage[DropRateSchema] */
+    DataPage_DropRateSchema_: {
       /** Data */
-      data: components['schemas']['CharacterSchema'][];
+      data: components['schemas']['DropRateSchema'][];
       /** Total */
       total: number | null;
       /** Page */
@@ -1876,10 +2325,36 @@ export interface components {
       /** Pages */
       pages?: number | null;
     };
-    /** DataPage[GEItemSchema] */
-    DataPage_GEItemSchema_: {
+    /** DataPage[EventSchema] */
+    DataPage_EventSchema_: {
       /** Data */
-      data: components['schemas']['GEItemSchema'][];
+      data: components['schemas']['EventSchema'][];
+      /** Total */
+      total: number | null;
+      /** Page */
+      page: number | null;
+      /** Size */
+      size: number | null;
+      /** Pages */
+      pages?: number | null;
+    };
+    /** DataPage[GEOrderSchema] */
+    DataPage_GEOrderSchema_: {
+      /** Data */
+      data: components['schemas']['GEOrderSchema'][];
+      /** Total */
+      total: number | null;
+      /** Page */
+      page: number | null;
+      /** Size */
+      size: number | null;
+      /** Pages */
+      pages?: number | null;
+    };
+    /** DataPage[GeOrderHistorySchema] */
+    DataPage_GeOrderHistorySchema_: {
+      /** Data */
+      data: components['schemas']['GeOrderHistorySchema'][];
       /** Total */
       total: number | null;
       /** Page */
@@ -1967,6 +2442,19 @@ export interface components {
       /** Pages */
       pages?: number | null;
     };
+    /** DataPage[TaskFullSchema] */
+    DataPage_TaskFullSchema_: {
+      /** Data */
+      data: components['schemas']['TaskFullSchema'][];
+      /** Total */
+      total: number | null;
+      /** Page */
+      page: number | null;
+      /** Size */
+      size: number | null;
+      /** Pages */
+      pages?: number | null;
+    };
     /** DeleteCharacterSchema */
     DeleteCharacterSchema: {
       /**
@@ -2018,7 +2506,7 @@ export interface components {
       code: string;
       /**
        * Rate
-       * @description Chance rate.
+       * @description Chance rate. (1/rate)
        */
       rate: number;
       /**
@@ -2049,26 +2537,8 @@ export interface components {
     EquipRequestSchema: {
       /** @description Cooldown details. */
       cooldown: components['schemas']['CooldownSchema'];
-      /**
-       * Slot
-       * @description Item slot.
-       * @enum {string}
-       */
-      slot:
-        | 'weapon'
-        | 'shield'
-        | 'helmet'
-        | 'body_armor'
-        | 'leg_armor'
-        | 'boots'
-        | 'ring1'
-        | 'ring2'
-        | 'amulet'
-        | 'artifact1'
-        | 'artifact2'
-        | 'artifact3'
-        | 'consumable1'
-        | 'consumable2';
+      /** @description Item slot. */
+      slot: components['schemas']['ItemSlot'];
       /** @description Item details. */
       item: components['schemas']['ItemSchema'];
       /** @description Player details. */
@@ -2081,29 +2551,11 @@ export interface components {
        * @description Item code.
        */
       code: string;
-      /**
-       * Slot
-       * @description Item slot.
-       * @enum {string}
-       */
-      slot:
-        | 'weapon'
-        | 'shield'
-        | 'helmet'
-        | 'body_armor'
-        | 'leg_armor'
-        | 'boots'
-        | 'ring1'
-        | 'ring2'
-        | 'amulet'
-        | 'artifact1'
-        | 'artifact2'
-        | 'artifact3'
-        | 'consumable1'
-        | 'consumable2';
+      /** @description Item slot. */
+      slot: components['schemas']['ItemSlot'];
       /**
        * Quantity
-       * @description Item quantity. Applicable to consumables only.
+       * @description Item quantity. Applicable to utilitys only.
        * @default 1
        */
       quantity: number;
@@ -2112,6 +2564,72 @@ export interface components {
     EquipmentResponseSchema: {
       data: components['schemas']['EquipRequestSchema'];
     };
+    /** EventContentSchema */
+    EventContentSchema: {
+      /**
+       * Type
+       * @description Type of the event.
+       */
+      type: string;
+      /**
+       * Code
+       * @description Code content.
+       */
+      code: string;
+    };
+    /** EventMapSchema */
+    EventMapSchema: {
+      /**
+       * X
+       * @description Position X of the map.
+       */
+      x: number;
+      /**
+       * Y
+       * @description Position Y of the map.
+       */
+      y: number;
+    };
+    /** EventSchema */
+    EventSchema: {
+      /**
+       * Name
+       * @description Name of the event.
+       */
+      name: string;
+      /**
+       * Code
+       * @description Code of the event. This is the event's unique identifier (ID).
+       */
+      code: string;
+      /**
+       * Maps
+       * @description Map list of the event.
+       */
+      maps: components['schemas']['EventMapSchema'][];
+      /**
+       * Skin
+       * @description Map skin of the event.
+       */
+      skin: string;
+      /**
+       * Duration
+       * @description Duration in minutes.
+       */
+      duration: number;
+      /**
+       * Rate
+       * @description Rate spawn of the event. (1/rate every minute)
+       */
+      rate: number;
+      /** @description Content of the event. */
+      content: components['schemas']['EventContentSchema'];
+    };
+    /**
+     * FightResult
+     * @enum {string}
+     */
+    FightResult: 'win' | 'loss';
     /** FightSchema */
     FightSchema: {
       /**
@@ -2143,47 +2661,47 @@ export interface components {
        * @description The fight logs.
        */
       logs: string[];
-      /**
-       * Result
-       * @description The result of the fight.
-       * @enum {string}
-       */
-      result: 'win' | 'lose';
+      /** @description The result of the fight. */
+      result: components['schemas']['FightResult'];
     };
-    /** GEItemResponseSchema */
-    GEItemResponseSchema: {
-      data: components['schemas']['GEItemSchema'];
+    /** GEBuyOrderSchema */
+    GEBuyOrderSchema: {
+      /**
+       * Id
+       * @description Order id.
+       */
+      id: string;
+      /**
+       * Quantity
+       * @description Item quantity.
+       */
+      quantity: number;
     };
-    /** GEItemSchema */
-    GEItemSchema: {
+    /** GECancelOrderSchema */
+    GECancelOrderSchema: {
       /**
-       * Code
-       * @description Item code.
+       * Id
+       * @description Order id.
        */
-      code: string;
-      /**
-       * Stock
-       * @description Item stock.
-       */
-      stock: number;
-      /**
-       * Sell Price
-       * @description The item's selling price.
-       */
-      sell_price?: number;
-      /**
-       * Buy Price
-       * @description The item's buying price.
-       */
-      buy_price?: number;
-      /**
-       * Max Quantity
-       * @description The number of items you can buy or sell at the same time.
-       */
-      max_quantity: number;
+      id: string;
     };
-    /** GETransactionItemSchema */
-    GETransactionItemSchema: {
+    /** GECreateOrderTransactionResponseSchema */
+    GECreateOrderTransactionResponseSchema: {
+      data: components['schemas']['GEOrderTransactionSchema'];
+    };
+    /** GEOrderCreatedSchema */
+    GEOrderCreatedSchema: {
+      /**
+       * Id
+       * @description Order id.
+       */
+      id: string;
+      /**
+       * Created At
+       * Format: date-time
+       * @description Order created at.
+       */
+      created_at: string;
       /**
        * Code
        * @description Item code.
@@ -2196,16 +2714,91 @@ export interface components {
       quantity: number;
       /**
        * Price
-       * @description Item price. Item price validation protects you if the price has changed since you last checked the buy/sale price of an item.
+       * @description Item price per unit.
        */
       price: number;
+      /**
+       * Total Price
+       * @description Total price.
+       */
+      total_price: number;
+      /**
+       * Tax
+       * @description Order creation tax (5%, minimum 1)
+       */
+      tax: number;
+    };
+    /** GEOrderCreationrSchema */
+    GEOrderCreationrSchema: {
+      /**
+       * Code
+       * @description Item code.
+       */
+      code: string;
+      /**
+       * Quantity
+       * @description Item quantity.
+       */
+      quantity: number;
+      /**
+       * Price
+       * @description Item price per unit.
+       */
+      price: number;
+    };
+    /** GEOrderReponseSchema */
+    GEOrderReponseSchema: {
+      data: components['schemas']['GEOrderSchema'];
+    };
+    /** GEOrderSchema */
+    GEOrderSchema: {
+      /**
+       * Id
+       * @description Order id.
+       */
+      id: string;
+      /**
+       * Seller
+       * @description Seller account name.
+       */
+      seller: string;
+      /**
+       * Code
+       * @description Item code.
+       */
+      code: string;
+      /**
+       * Quantity
+       * @description Item quantity.
+       */
+      quantity: number;
+      /**
+       * Price
+       * @description Item price per unit.
+       */
+      price: number;
+      /**
+       * Created At
+       * Format: date-time
+       * @description Order created at.
+       */
+      created_at: string;
+    };
+    /** GEOrderTransactionSchema */
+    GEOrderTransactionSchema: {
+      /** @description Cooldown details. */
+      cooldown: components['schemas']['CooldownSchema'];
+      /** @description Order details. */
+      order: components['schemas']['GEOrderCreatedSchema'];
+      /** @description Character details. */
+      character: components['schemas']['CharacterSchema'];
     };
     /** GETransactionListSchema */
     GETransactionListSchema: {
       /** @description Cooldown details. */
       cooldown: components['schemas']['CooldownSchema'];
       /** @description Transaction details. */
-      transaction: components['schemas']['GETransactionSchema'];
+      order: components['schemas']['GETransactionSchema'];
       /** @description Character details. */
       character: components['schemas']['CharacterSchema'];
     };
@@ -2215,6 +2808,11 @@ export interface components {
     };
     /** GETransactionSchema */
     GETransactionSchema: {
+      /**
+       * Id
+       * @description Order id.
+       */
+      id: string;
       /**
        * Code
        * @description Item code.
@@ -2235,6 +2833,51 @@ export interface components {
        * @description Total price of the transaction.
        */
       total_price: number;
+    };
+    /**
+     * GatheringSkill
+     * @enum {string}
+     */
+    GatheringSkill: 'mining' | 'woodcutting' | 'fishing' | 'alchemy';
+    'GatheringSkill_a-zA-Z0-9_-_____': components['schemas']['GatheringSkill'];
+    /** GeOrderHistorySchema */
+    GeOrderHistorySchema: {
+      /**
+       * Order Id
+       * @description Order id.
+       */
+      order_id: string;
+      /**
+       * Seller
+       * @description Seller account name.
+       */
+      seller: string;
+      /**
+       * Buyer
+       * @description Buyer account name.
+       */
+      buyer: string;
+      /**
+       * Code
+       * @description Item code.
+       */
+      code: string;
+      /**
+       * Quantity
+       * @description Item quantity.
+       */
+      quantity: number;
+      /**
+       * Price
+       * @description Item price per unit.
+       */
+      price: number;
+      /**
+       * Sold At
+       * Format: date-time
+       * @description Sale datetime.
+       */
+      sold_at: string;
     };
     /** GoldSchema */
     GoldSchema: {
@@ -2282,7 +2925,7 @@ export interface components {
     };
     /** ItemResponseSchema */
     ItemResponseSchema: {
-      data: components['schemas']['SingleItemSchema'];
+      data: components['schemas']['ItemSchema'];
     };
     /** ItemSchema */
     ItemSchema: {
@@ -2323,7 +2966,50 @@ export interface components {
       effects?: components['schemas']['ItemEffectSchema'][];
       /** @description Craft information. If applicable. */
       craft?: components['schemas']['CraftSchema'] | null;
+      /**
+       * Tradeable
+       * @description Item tradeable status. A non-tradeable item cannot be exchanged or sold.
+       */
+      tradeable: boolean;
     };
+    /**
+     * ItemSlot
+     * @enum {string}
+     */
+    ItemSlot:
+      | 'weapon'
+      | 'shield'
+      | 'helmet'
+      | 'body_armor'
+      | 'leg_armor'
+      | 'boots'
+      | 'ring1'
+      | 'ring2'
+      | 'amulet'
+      | 'artifact1'
+      | 'artifact2'
+      | 'artifact3'
+      | 'utility1'
+      | 'utility2';
+    /**
+     * ItemType
+     * @enum {string}
+     */
+    ItemType:
+      | 'utility'
+      | 'body_armor'
+      | 'weapon'
+      | 'resource'
+      | 'leg_armor'
+      | 'helmet'
+      | 'boots'
+      | 'shield'
+      | 'amulet'
+      | 'ring'
+      | 'artifact'
+      | 'currency'
+      | 'consumable';
+    'ItemType_a-zA-Z0-9_-_____': components['schemas']['ItemType'];
     /** LogSchema */
     LogSchema: {
       /**
@@ -2336,11 +3022,8 @@ export interface components {
        * @description Account character.
        */
       account: string;
-      /**
-       * Type
-       * @description Type of action.
-       */
-      type: string;
+      /** @description Type of action. */
+      type: components['schemas']['LogType'];
       /**
        * Description
        * @description Description of action.
@@ -2368,6 +3051,36 @@ export interface components {
        */
       created_at: string;
     };
+    /**
+     * LogType
+     * @enum {string}
+     */
+    LogType:
+      | 'spawn'
+      | 'movement'
+      | 'fight'
+      | 'crafting'
+      | 'gathering'
+      | 'buy_ge'
+      | 'sell_ge'
+      | 'cancel_ge'
+      | 'delete_item'
+      | 'deposit'
+      | 'withdraw'
+      | 'deposit_gold'
+      | 'withdraw_gold'
+      | 'equip'
+      | 'unequip'
+      | 'new_task'
+      | 'task_exchange'
+      | 'task_cancelled'
+      | 'task_completed'
+      | 'task_trade'
+      | 'recycling'
+      | 'rest'
+      | 'use'
+      | 'buy_bank_expansion'
+      | 'achievement';
     /** MapContentSchema */
     MapContentSchema: {
       /**
@@ -2381,6 +3094,18 @@ export interface components {
        */
       code: string;
     };
+    /**
+     * MapContentType
+     * @enum {string}
+     */
+    MapContentType:
+      | 'monster'
+      | 'resource'
+      | 'workshop'
+      | 'bank'
+      | 'grand_exchange'
+      | 'tasks_master';
+    'MapContentType_a-zA-Z0-9_-_____': components['schemas']['MapContentType'];
     /** MapResponseSchema */
     MapResponseSchema: {
       data: components['schemas']['MapSchema'];
@@ -2492,6 +3217,56 @@ export interface components {
        */
       drops: components['schemas']['DropRateSchema'][];
     };
+    /** MyAccountDetails */
+    MyAccountDetails: {
+      /**
+       * Username
+       * @description Username.
+       */
+      username: string;
+      /**
+       * Email
+       * Format: email
+       * @description Email.
+       */
+      email: string;
+      /**
+       * Subscribed
+       * @description Subscribed for the current season.
+       */
+      subscribed: boolean;
+      /** @description Member status. */
+      status: components['schemas']['AccountStatus'];
+      /**
+       * Badges
+       * @description Account badges.
+       */
+      badges?: unknown[] | null;
+      /**
+       * Gems
+       * @description Gems.
+       */
+      gems: number;
+      /**
+       * Achievements Points
+       * @description Achievement points.
+       */
+      achievements_points: number;
+      /**
+       * Banned
+       * @description Banned.
+       */
+      banned: boolean;
+      /**
+       * Ban Reason
+       * @description Ban reason.
+       */
+      ban_reason?: string;
+    };
+    /** MyAccountDetailsSchema */
+    MyAccountDetailsSchema: {
+      data: components['schemas']['MyAccountDetails'];
+    };
     /** MyCharactersListSchema */
     MyCharactersListSchema: {
       /**
@@ -2554,9 +3329,8 @@ export interface components {
       /**
        * Skill code
        * @description The skill required to gather this resource.
-       * @enum {string}
        */
-      skill: 'mining' | 'woodcutting' | 'fishing';
+      skill: components['schemas']['GatheringSkill'];
       /**
        * Level
        * @description The skill level required to gather this resource.
@@ -2586,13 +3360,19 @@ export interface components {
        */
       quantity: number;
     };
-    /** SingleItemSchema */
-    SingleItemSchema: {
-      /** @description Item information. */
-      item: components['schemas']['ItemSchema'];
-      /** @description Grand Exchange information. If applicable. */
-      ge?: components['schemas']['GEItemSchema'] | null;
-    };
+    /**
+     * Skill
+     * @enum {string}
+     */
+    Skill:
+      | 'weaponcrafting'
+      | 'gearcrafting'
+      | 'jewelrycrafting'
+      | 'cooking'
+      | 'woodcutting'
+      | 'mining'
+      | 'alchemy'
+      | 'fishing';
     /** SkillDataSchema */
     SkillDataSchema: {
       /** @description Cooldown details. */
@@ -2619,6 +3399,7 @@ export interface components {
     SkillResponseSchema: {
       data: components['schemas']['SkillDataSchema'];
     };
+    'Skill_a-zA-Z0-9_-_____': components['schemas']['Skill'];
     /** StatusResponseSchema */
     StatusResponseSchema: {
       data: components['schemas']['StatusSchema'];
@@ -2630,8 +3411,11 @@ export interface components {
        * @description Server status
        */
       status: string;
-      /** Version */
-      version?: string;
+      /**
+       * Version
+       * @description Game version.
+       */
+      version: string;
       /**
        * Max Level
        * @description Maximum level.
@@ -2684,35 +3468,61 @@ export interface components {
       /** @description Player details. */
       character: components['schemas']['CharacterSchema'];
     };
+    /** TaskFullResponseSchema */
+    TaskFullResponseSchema: {
+      data: components['schemas']['TaskFullSchema'];
+    };
+    /** TaskFullSchema */
+    TaskFullSchema: {
+      /**
+       * Code
+       * @description Task objective.
+       */
+      code: string;
+      /**
+       * Level
+       * @description Task level.
+       */
+      level: number;
+      /**
+       * Type
+       * @description The type of task.
+       */
+      type: components['schemas']['TaskType'];
+      /**
+       * Min Quantity
+       * @description Minimum amount of task.
+       */
+      min_quantity: number;
+      /**
+       * Max Quantity
+       * @description Maximum amount of task.
+       */
+      max_quantity: number;
+      /**
+       * Skill
+       * @description Skill required to complete the task.
+       */
+      skill: string | null;
+      /** @description Rewards. */
+      rewards: components['schemas']['TaskRewardsSchema'];
+    };
     /** TaskResponseSchema */
     TaskResponseSchema: {
       data: components['schemas']['TaskDataSchema'];
     };
-    /** TaskRewardDataSchema */
-    TaskRewardDataSchema: {
-      /** @description Cooldown details. */
-      cooldown: components['schemas']['CooldownSchema'];
-      /** @description Reward details. */
-      reward: components['schemas']['TaskRewardSchema'];
-      /** @description Player details. */
-      character: components['schemas']['CharacterSchema'];
-    };
-    /** TaskRewardResponseSchema */
-    TaskRewardResponseSchema: {
-      data: components['schemas']['TaskRewardDataSchema'];
-    };
-    /** TaskRewardSchema */
-    TaskRewardSchema: {
+    /** TaskRewardsSchema */
+    TaskRewardsSchema: {
       /**
-       * Code
-       * @description Item code.
+       * Items
+       * @description Items rewards.
        */
-      code: string;
+      items: components['schemas']['SimpleItemSchema'][];
       /**
-       * Quantity
-       * @description Item quantity.
+       * Gold
+       * @description Gold rewards.
        */
-      quantity: number;
+      gold: number;
     };
     /** TaskSchema */
     TaskSchema: {
@@ -2724,14 +3534,64 @@ export interface components {
       /**
        * Type
        * @description The type of task.
-       * @enum {string}
        */
-      type: 'monsters' | 'resources' | 'crafts';
+      type: components['schemas']['TaskType'];
       /**
        * Total
        * @description The total required to complete the task.
        */
       total: number;
+      /** @description Rewards for completing the task. */
+      rewards: components['schemas']['TaskRewardsSchema'];
+    };
+    /** TaskTradeDataSchema */
+    TaskTradeDataSchema: {
+      /** @description Cooldown details. */
+      cooldown: components['schemas']['CooldownSchema'];
+      /** @description Reward details. */
+      trade: components['schemas']['TaskTradeSchema'];
+      /** @description Player details. */
+      character: components['schemas']['CharacterSchema'];
+    };
+    /** TaskTradeResponseSchema */
+    TaskTradeResponseSchema: {
+      data: components['schemas']['TaskTradeDataSchema'];
+    };
+    /** TaskTradeSchema */
+    TaskTradeSchema: {
+      /**
+       * Code
+       * @description Item code.
+       */
+      code: string;
+      /**
+       * Quantity
+       * @description Item quantity.
+       */
+      quantity: number;
+    };
+    /**
+     * TaskType
+     * @enum {string}
+     */
+    TaskType: 'monsters' | 'items';
+    'TaskType_a-zA-Z0-9_-_____': components['schemas']['TaskType'];
+    /** TasksRewardDataResponseSchema */
+    TasksRewardDataResponseSchema: {
+      data: components['schemas']['TasksRewardDataSchema'];
+    };
+    /** TasksRewardDataSchema */
+    TasksRewardDataSchema: {
+      /** @description Cooldown details. */
+      cooldown: components['schemas']['CooldownSchema'];
+      /** @description Reward details. */
+      rewards: components['schemas']['TaskRewardsSchema'];
+      /** @description Player details. */
+      character: components['schemas']['CharacterSchema'];
+    };
+    /** TasksRewardResponseSchema */
+    TasksRewardResponseSchema: {
+      data: components['schemas']['DropRateSchema'];
     };
     /** TokenResponseSchema */
     TokenResponseSchema: {
@@ -2740,32 +3600,27 @@ export interface components {
     };
     /** UnequipSchema */
     UnequipSchema: {
-      /**
-       * Slot
-       * @description Item slot.
-       * @enum {string}
-       */
-      slot:
-        | 'weapon'
-        | 'shield'
-        | 'helmet'
-        | 'body_armor'
-        | 'leg_armor'
-        | 'boots'
-        | 'ring1'
-        | 'ring2'
-        | 'amulet'
-        | 'artifact1'
-        | 'artifact2'
-        | 'artifact3'
-        | 'consumable1'
-        | 'consumable2';
+      /** @description Item slot. */
+      slot: components['schemas']['ItemSlot'];
       /**
        * Quantity
-       * @description Item quantity. Applicable to consumables only.
+       * @description Item quantity. Applicable to utilitys only.
        * @default 1
        */
       quantity: number;
+    };
+    /** UseItemResponseSchema */
+    UseItemResponseSchema: {
+      data: components['schemas']['UseItemSchema'];
+    };
+    /** UseItemSchema */
+    UseItemSchema: {
+      /** @description Cooldown details. */
+      cooldown: components['schemas']['CooldownSchema'];
+      /** @description Item details. */
+      item: components['schemas']['ItemSchema'];
+      /** @description Player details. */
+      character: components['schemas']['CharacterSchema'];
     };
     /** ValidationError */
     ValidationError: {
@@ -2847,6 +3702,50 @@ export interface operations {
       };
     };
   };
+  action_rest_my__name__action_rest_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Name of your character. */
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description The character has rested successfully. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['CharacterRestResponseSchema'];
+        };
+      };
+      /** @description An action is already in progress by your character. */
+      486: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character not found. */
+      498: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character in cooldown. */
+      499: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
   action_equip_item_my__name__action_equip_post: {
     parameters: {
       query?: never;
@@ -2886,7 +3785,7 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Character can't equip more than 100 consumables in the same slot. */
+      /** @description Character can't equip more than 100 utilitys in the same slot. */
       484: {
         headers: {
           [name: string]: unknown;
@@ -2916,6 +3815,13 @@ export interface operations {
       };
       /** @description Character level is insufficient. */
       496: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character inventory is full. */
+      497: {
         headers: {
           [name: string]: unknown;
         };
@@ -2976,6 +3882,13 @@ export interface operations {
         };
         content?: never;
       };
+      /** @description Character has no enough HP to unequip this item. */
+      483: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
       /** @description An action is already in progress by your character. */
       486: {
         headers: {
@@ -2992,6 +3905,82 @@ export interface operations {
       };
       /** @description Character inventory is full. */
       497: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character not found. */
+      498: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character in cooldown. */
+      499: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  action_use_item_my__name__action_use_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Name of your character. */
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['SimpleItemSchema'];
+      };
+    };
+    responses: {
+      /** @description The item has been successfully used. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['UseItemResponseSchema'];
+        };
+      };
+      /** @description Item not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description This item is not a consumable. */
+      476: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Missing item or insufficient quantity. */
+      478: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description An action is already in progress by your character. */
+      486: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character level is insufficient. */
+      496: {
         headers: {
           [name: string]: unknown;
         };
@@ -3219,6 +4208,75 @@ export interface operations {
       };
     };
   };
+  action_deposit_bank_gold_my__name__action_bank_deposit_gold_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Name of your character. */
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['DepositWithdrawGoldSchema'];
+      };
+    };
+    responses: {
+      /** @description Golds successfully deposited in your bank. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BankGoldTransactionResponseSchema'];
+        };
+      };
+      /** @description A transaction is already in progress with this item/your gold in your bank. */
+      461: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description An action is already in progress by your character. */
+      486: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Insufficient gold on your character. */
+      492: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character not found. */
+      498: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character in cooldown. */
+      499: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Bank not found on this map. */
+      598: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
   action_deposit_bank_my__name__action_bank_deposit_post: {
     parameters: {
       query?: never;
@@ -3251,7 +4309,7 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description A transaction is already in progress with this item/your golds in your bank. */
+      /** @description A transaction is already in progress with this item/your gold in your bank. */
       461: {
         headers: {
           [name: string]: unknown;
@@ -3302,7 +4360,90 @@ export interface operations {
       };
     };
   };
-  action_deposit_bank_gold_my__name__action_bank_deposit_gold_post: {
+  action_withdraw_bank_my__name__action_bank_withdraw_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Name of your character. */
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['SimpleItemSchema'];
+      };
+    };
+    responses: {
+      /** @description Item successfully withdraw from your bank. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BankItemTransactionResponseSchema'];
+        };
+      };
+      /** @description Item not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description A transaction is already in progress with this item/your gold in your bank. */
+      461: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Missing item or insufficient quantity. */
+      478: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description An action is already in progress by your character. */
+      486: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character inventory is full. */
+      497: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character not found. */
+      498: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character in cooldown. */
+      499: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Bank not found on this map. */
+      598: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  action_withdraw_bank_gold_my__name__action_bank_withdraw_gold_post: {
     parameters: {
       query?: never;
       header?: never;
@@ -3318,7 +4459,7 @@ export interface operations {
       };
     };
     responses: {
-      /** @description Golds successfully deposited in your bank. */
+      /** @description Golds successfully withdraw from your bank. */
       200: {
         headers: {
           [name: string]: unknown;
@@ -3327,7 +4468,14 @@ export interface operations {
           'application/json': components['schemas']['BankGoldTransactionResponseSchema'];
         };
       };
-      /** @description A transaction is already in progress with this item/your golds in your bank. */
+      /** @description Insufficient gold in your bank. */
+      460: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description A transaction is already in progress with this item/your gold in your bank. */
       461: {
         headers: {
           [name: string]: unknown;
@@ -3341,7 +4489,58 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Insufficient golds on your character. */
+      /** @description Character not found. */
+      498: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character in cooldown. */
+      499: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Bank not found on this map. */
+      598: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  action_buy_bank_expansion_my__name__action_bank_buy_expansion_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Name of your character. */
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Bank expansion successfully bought. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['BankExtensionTransactionResponseSchema'];
+        };
+      };
+      /** @description An action is already in progress by your character. */
+      486: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Insufficient gold on your character. */
       492: {
         headers: {
           [name: string]: unknown;
@@ -3461,7 +4660,7 @@ export interface operations {
       };
     };
   };
-  action_withdraw_bank_my__name__action_bank_withdraw_post: {
+  action_ge_buy_item_my__name__action_grandexchange_buy_post: {
     parameters: {
       query?: never;
       header?: never;
@@ -3473,159 +4672,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        'application/json': components['schemas']['SimpleItemSchema'];
-      };
-    };
-    responses: {
-      /** @description Item successfully withdraw from your bank. */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['BankItemTransactionResponseSchema'];
-        };
-      };
-      /** @description Item not found. */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description A transaction is already in progress with this item/your golds in your bank. */
-      461: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Missing item or insufficient quantity. */
-      478: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description An action is already in progress by your character. */
-      486: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Character inventory is full. */
-      497: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Character not found. */
-      498: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Character in cooldown. */
-      499: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Bank not found on this map. */
-      598: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  action_withdraw_bank_gold_my__name__action_bank_withdraw_gold_post: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Name of your character. */
-        name: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['DepositWithdrawGoldSchema'];
-      };
-    };
-    responses: {
-      /** @description Golds successfully withdraw from your bank. */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['BankGoldTransactionResponseSchema'];
-        };
-      };
-      /** @description Insufficient golds in your bank. */
-      460: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description A transaction is already in progress with this item/your golds in your bank. */
-      461: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description An action is already in progress by your character. */
-      486: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Character not found. */
-      498: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Character in cooldown. */
-      499: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Bank not found on this map. */
-      598: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  action_ge_buy_item_my__name__action_ge_buy_post: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Name of your character. */
-        name: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['GETransactionItemSchema'];
+        'application/json': components['schemas']['GEBuyOrderSchema'];
       };
     };
     responses: {
@@ -3638,29 +4685,29 @@ export interface operations {
           'application/json': components['schemas']['GETransactionResponseSchema'];
         };
       };
-      /** @description You can't buy or sell that many items at the same time. */
-      479: {
+      /** @description Order not found. */
+      404: {
         headers: {
           [name: string]: unknown;
         };
         content?: never;
       };
-      /** @description No stock for this item. */
-      480: {
+      /** @description This offer does not contain as many items. */
+      434: {
         headers: {
           [name: string]: unknown;
         };
         content?: never;
       };
-      /** @description No item at this price. */
-      482: {
+      /** @description You can't buy to yourself. */
+      435: {
         headers: {
           [name: string]: unknown;
         };
         content?: never;
       };
-      /** @description A transaction is already in progress on this item by a another character. */
-      483: {
+      /** @description A transaction is already in progress on this order by a another character. */
+      436: {
         headers: {
           [name: string]: unknown;
         };
@@ -3673,7 +4720,7 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Insufficient golds on your character. */
+      /** @description Insufficient gold on your character. */
       492: {
         headers: {
           [name: string]: unknown;
@@ -3710,7 +4757,7 @@ export interface operations {
       };
     };
   };
-  action_ge_sell_item_my__name__action_ge_sell_post: {
+  action_ge_create_sell_order_my__name__action_grandexchange_sell_post: {
     parameters: {
       query?: never;
       header?: never;
@@ -3722,21 +4769,35 @@ export interface operations {
     };
     requestBody: {
       content: {
-        'application/json': components['schemas']['GETransactionItemSchema'];
+        'application/json': components['schemas']['GEOrderCreationrSchema'];
       };
     };
     responses: {
-      /** @description Item successfully sell at the Grand Exchange. */
+      /** @description The sell order has been successfully created. */
       200: {
         headers: {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['GETransactionResponseSchema'];
+          'application/json': components['schemas']['GECreateOrderTransactionResponseSchema'];
         };
       };
       /** @description Item not found. */
       404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description You can't create more than 100 orders at the same time. */
+      433: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description This item cannot be sold. */
+      437: {
         headers: {
           [name: string]: unknown;
         };
@@ -3749,29 +4810,15 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description You can't buy or sell that many items at the same time. */
-      479: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description No item at this price. */
-      482: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description A transaction is already in progress on this item by a another character. */
-      483: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
       /** @description An action is already in progress by your character. */
       486: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Insufficient gold on your character. */
+      492: {
         headers: {
           [name: string]: unknown;
         };
@@ -3800,7 +4847,7 @@ export interface operations {
       };
     };
   };
-  action_buy_bank_expansion_my__name__action_bank_buy_expansion_post: {
+  action_ge_cancel_sell_order_my__name__action_grandexchange_cancel_post: {
     parameters: {
       query?: never;
       header?: never;
@@ -3810,16 +4857,41 @@ export interface operations {
       };
       cookie?: never;
     };
-    requestBody?: never;
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['GECancelOrderSchema'];
+      };
+    };
     responses: {
-      /** @description Bank expansion successfully bought. */
+      /** @description Your sell order has been successfully cancelled. */
       200: {
         headers: {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['BankExtensionTransactionResponseSchema'];
+          'application/json': components['schemas']['GETransactionResponseSchema'];
         };
+      };
+      /** @description Order not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description A transaction is already in progress on this order by a another character. */
+      436: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description You can't cancel an order that is not yours. */
+      438: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
       };
       /** @description An action is already in progress by your character. */
       486: {
@@ -3828,8 +4900,8 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Insufficient golds on your character. */
-      492: {
+      /** @description Character inventory is full. */
+      497: {
         headers: {
           [name: string]: unknown;
         };
@@ -3849,65 +4921,7 @@ export interface operations {
         };
         content?: never;
       };
-      /** @description Bank not found on this map. */
-      598: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  action_accept_new_task_my__name__action_task_new_post: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Name of your character. */
-        name: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description New task successfully accepted. */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['TaskResponseSchema'];
-        };
-      };
-      /** @description An action is already in progress by your character. */
-      486: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Character already has a task. */
-      489: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Character not found. */
-      498: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Character in cooldown. */
-      499: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      /** @description Tasks Master not found on this map. */
+      /** @description Grand Exchange not found on this map. */
       598: {
         headers: {
           [name: string]: unknown;
@@ -3934,7 +4948,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['TaskRewardResponseSchema'];
+          'application/json': components['schemas']['TasksRewardDataResponseSchema'];
         };
       };
       /** @description An action is already in progress by your character. */
@@ -4006,7 +5020,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['TaskRewardResponseSchema'];
+          'application/json': components['schemas']['TasksRewardDataResponseSchema'];
         };
       };
       /** @description Missing item or insufficient quantity. */
@@ -4025,6 +5039,140 @@ export interface operations {
       };
       /** @description Character inventory is full. */
       497: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character not found. */
+      498: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character in cooldown. */
+      499: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Tasks Master not found on this map. */
+      598: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  action_accept_new_task_my__name__action_task_new_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Name of your character. */
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description New task successfully accepted. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['TaskResponseSchema'];
+        };
+      };
+      /** @description An action is already in progress by your character. */
+      486: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character already has a task. */
+      489: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character not found. */
+      498: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character in cooldown. */
+      499: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Tasks Master not found on this map. */
+      598: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  action_task_trade_my__name__action_task_trade_post: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Name of your character. */
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['SimpleItemSchema'];
+      };
+    };
+    responses: {
+      /** @description You have successfully trade items to a Tasks Master. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['TaskTradeResponseSchema'];
+        };
+      };
+      /** @description Character does not have this task. */
+      474: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Character have already completed the task or are trying to trade too many items. */
+      475: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Missing item or insufficient quantity. */
+      478: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description An action is already in progress by your character. */
+      486: {
         headers: {
           [name: string]: unknown;
         };
@@ -4272,6 +5420,82 @@ export interface operations {
       };
     };
   };
+  get_ge_sell_orders_my_grandexchange_orders_get: {
+    parameters: {
+      query?: {
+        /** @description The code of the item. */
+        code?: string;
+        /** @description Page number */
+        page?: number;
+        /** @description Page size */
+        size?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched orders details. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['DataPage_GEOrderSchema_'];
+        };
+      };
+    };
+  };
+  get_ge_sell_history_my_grandexchange_history_get: {
+    parameters: {
+      query?: {
+        /** @description Order ID to search in your history. */
+        id?: string;
+        /** @description Item to search in your history. */
+        code?: string;
+        /** @description Page number */
+        page?: number;
+        /** @description Page size */
+        size?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched sales history. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['DataPage_GeOrderHistorySchema_'];
+        };
+      };
+    };
+  };
+  get_account_details_my_details_get: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched account details. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['MyAccountDetailsSchema'];
+        };
+      };
+    };
+  };
   change_password_my_change_password_post: {
     parameters: {
       query?: never;
@@ -4372,31 +5596,6 @@ export interface operations {
       };
     };
   };
-  get_all_characters_characters_get: {
-    parameters: {
-      query?: {
-        /** @description Page number */
-        page?: number;
-        /** @description Page size */
-        size?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successfully fetched characters details. */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DataPage_CharacterSchema_'];
-        };
-      };
-    };
-  };
   get_character_characters__name__get: {
     parameters: {
       query?: never;
@@ -4427,64 +5626,11 @@ export interface operations {
       };
     };
   };
-  get_character_achievements_characters__name__achievements_get: {
-    parameters: {
-      query?: {
-        /** @description Type of achievements. */
-        type?:
-          | 'combat_kill'
-          | 'combat_drop'
-          | 'combat_level'
-          | 'gathering'
-          | 'crafting'
-          | 'recycling'
-          | 'task'
-          | 'other';
-        /** @description Filter by completed achievements. */
-        completed?: boolean;
-        /** @description Page number */
-        page?: number;
-        /** @description Page size */
-        size?: number;
-      };
-      header?: never;
-      path: {
-        /** @description The character name. */
-        name: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successfully fetched character. */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DataPage_AchievementSchema_'];
-        };
-      };
-      /** @description Character not found. */
-      404: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
   get_all_maps_maps_get: {
     parameters: {
       query?: {
         /** @description Type of content on the map. */
-        content_type?:
-          | 'monster'
-          | 'resource'
-          | 'workshop'
-          | 'bank'
-          | 'grand_exchange'
-          | 'tasks_master';
+        content_type?: components['schemas']['MapContentType_a-zA-Z0-9_-_____'];
         /** @description Content code on the map. */
         content_code?: string;
         /** @description Page number */
@@ -4551,27 +5697,9 @@ export interface operations {
         /** @description Name of the item. */
         name?: string;
         /** @description Type of items. */
-        type?:
-          | 'consumable'
-          | 'body_armor'
-          | 'weapon'
-          | 'resource'
-          | 'leg_armor'
-          | 'helmet'
-          | 'boots'
-          | 'shield'
-          | 'amulet'
-          | 'ring'
-          | 'artifact'
-          | 'currency';
+        type?: components['schemas']['ItemType_a-zA-Z0-9_-_____'];
         /** @description Skill to craft items. */
-        craft_skill?:
-          | 'weaponcrafting'
-          | 'gearcrafting'
-          | 'jewelrycrafting'
-          | 'cooking'
-          | 'woodcutting'
-          | 'mining';
+        craft_skill?: components['schemas']['CraftSkill_a-zA-Z0-9_-_____'];
         /** @description Item code of items used as material for crafting. */
         craft_material?: string;
         /** @description Page number */
@@ -4633,10 +5761,7 @@ export interface operations {
         min_level?: number;
         /** @description Monster maximum level. */
         max_level?: number;
-        /**
-         * @description Item code of the drop.
-         * @example green_slimeball
-         */
+        /** @description Item code of the drop. */
         drop?: string;
         /** @description Page number */
         page?: number;
@@ -4698,11 +5823,8 @@ export interface operations {
         /** @description Skill maximum level. */
         max_level?: number;
         /** @description The code of the skill. */
-        skill?: 'mining' | 'woodcutting' | 'fishing';
-        /**
-         * @description Item code of the drop.
-         * @example copper_ore
-         */
+        skill?: components['schemas']['GatheringSkill_a-zA-Z0-9_-_____'];
+        /** @description Item code of the drop. */
         drop?: string;
         /** @description Page number */
         page?: number;
@@ -4759,7 +5881,7 @@ export interface operations {
       };
     };
   };
-  get_all_events_events_get: {
+  get_all_active_events_events_active_get: {
     parameters: {
       query?: {
         /** @description Page number */
@@ -4784,7 +5906,7 @@ export interface operations {
       };
     };
   };
-  get_all_ge_items_ge_get: {
+  get_all_events_events_get: {
     parameters: {
       query?: {
         /** @description Page number */
@@ -4798,20 +5920,29 @@ export interface operations {
     };
     requestBody?: never;
     responses: {
-      /** @description Fetch Grand Exchange items details. */
+      /** @description Successfully fetched events details. */
       200: {
         headers: {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['DataPage_GEItemSchema_'];
+          'application/json': components['schemas']['DataPage_EventSchema_'];
         };
       };
     };
   };
-  get_ge_item_ge__code__get: {
+  get_ge_sell_history_grandexchange_history__code__get: {
     parameters: {
-      query?: never;
+      query?: {
+        /** @description The seller (account name) of the item. */
+        seller?: string;
+        /** @description The buyer (account name) of the item. */
+        buyer?: string;
+        /** @description Page number */
+        page?: number;
+        /** @description Page size */
+        size?: number;
+      };
       header?: never;
       path: {
         /** @description The code of the item. */
@@ -4821,16 +5952,193 @@ export interface operations {
     };
     requestBody?: never;
     responses: {
-      /** @description Successfully fetched Grand Exchange item. */
+      /** @description Successfully fetched orders history. */
       200: {
         headers: {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['GEItemResponseSchema'];
+          'application/json': components['schemas']['DataPage_GeOrderHistorySchema_'];
         };
       };
       /** @description Item not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  get_ge_sell_orders_grandexchange_orders_get: {
+    parameters: {
+      query?: {
+        /** @description The code of the item. */
+        code?: string;
+        /** @description The seller (account name) of the item. */
+        seller?: string;
+        /** @description Page number */
+        page?: number;
+        /** @description Page size */
+        size?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched orders details. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['DataPage_GEOrderSchema_'];
+        };
+      };
+    };
+  };
+  get_ge_sell_order_grandexchange_orders__id__get: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The id of the order. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched order. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['GEOrderReponseSchema'];
+        };
+      };
+      /** @description Order not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  get_all_tasks_tasks_list_get: {
+    parameters: {
+      query?: {
+        /** @description Minimum level. */
+        min_level?: number;
+        /** @description Maximum level. */
+        max_level?: number;
+        /** @description The code of the skill. */
+        skill?: components['schemas']['Skill_a-zA-Z0-9_-_____'];
+        /** @description The type of tasks. */
+        type?: components['schemas']['TaskType_a-zA-Z0-9_-_____'];
+        /** @description Page number */
+        page?: number;
+        /** @description Page size */
+        size?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched tasks details. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['DataPage_TaskFullSchema_'];
+        };
+      };
+    };
+  };
+  get_task_tasks_list__code__get: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The code of the task. */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched task. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['TaskFullResponseSchema'];
+        };
+      };
+      /** @description Task not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  get_all_tasks_rewards_tasks_rewards_get: {
+    parameters: {
+      query?: {
+        /** @description Page number */
+        page?: number;
+        /** @description Page size */
+        size?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched tasks rewards details. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['DataPage_DropRateSchema_'];
+        };
+      };
+    };
+  };
+  get_tasks_reward_tasks_rewards__code__get: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The code of the tasks reward. */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched tasks reward. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['TasksRewardResponseSchema'];
+        };
+      };
+      /** @description Tasks reward not found. */
       404: {
         headers: {
           [name: string]: unknown;
@@ -4843,15 +6151,7 @@ export interface operations {
     parameters: {
       query?: {
         /** @description Type of achievements. */
-        type?:
-          | 'combat_kill'
-          | 'combat_drop'
-          | 'combat_level'
-          | 'gathering'
-          | 'crafting'
-          | 'recycling'
-          | 'task'
-          | 'other';
+        type?: components['schemas']['AchievementType_a-zA-Z0-9_-_____'];
         /** @description Page number */
         page?: number;
         /** @description Page size */
@@ -4869,7 +6169,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['DataPage_BaseAchievementSchema_'];
+          'application/json': components['schemas']['DataPage_AchievementSchema_'];
         };
       };
     };
@@ -4892,7 +6192,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['BaseachievementResponseSchema'];
+          'application/json': components['schemas']['AchievementResponseSchema'];
         };
       };
       /** @description achievement not found. */
@@ -4904,21 +6204,11 @@ export interface operations {
       };
     };
   };
-  get_leaderboard_leaderboard_get: {
+  get_characters_leaderboard_leaderboard_characters_get: {
     parameters: {
       query?: {
         /** @description Default sort by combat total XP. */
-        sort?:
-          | 'combat'
-          | 'woodcutting'
-          | 'mining'
-          | 'fishing'
-          | 'weaponcrafting'
-          | 'gearcrafting'
-          | 'jewelrycrafting'
-          | 'cooking'
-          | 'achievements_points'
-          | 'gold';
+        sort?: components['schemas']['CharacterLeaderboardType_a-zA-Z0-9_-_____'];
         /** @description Page number */
         page?: number;
         /** @description Page size */
@@ -4937,6 +6227,33 @@ export interface operations {
         };
         content: {
           'application/json': components['schemas']['DataPage_CharacterLeaderboardSchema_'];
+        };
+      };
+    };
+  };
+  get_accounts_leaderboard_leaderboard_accounts_get: {
+    parameters: {
+      query?: {
+        /** @description Default sort by achievements points. */
+        sort?: components['schemas']['AccountLeaderboardType_a-zA-Z0-9_-_____'];
+        /** @description Page number */
+        page?: number;
+        /** @description Page size */
+        size?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched leaderboard. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['DataPage_AccountLeaderboardSchema_'];
         };
       };
     };
@@ -4972,6 +6289,75 @@ export interface operations {
       };
       /** @description Email already used. */
       457: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  get_account_achievements_accounts__account__achievements_get: {
+    parameters: {
+      query?: {
+        /** @description Type of achievements. */
+        type?: components['schemas']['AchievementType_a-zA-Z0-9_-_____'];
+        /** @description Filter by completed achievements. */
+        completed?: boolean;
+        /** @description Page number */
+        page?: number;
+        /** @description Page size */
+        size?: number;
+      };
+      header?: never;
+      path: {
+        /** @description The character name. */
+        account: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched achievements. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['DataPage_AccountAchievementSchema_'];
+        };
+      };
+      /** @description Account not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  get_account_accounts__account__get: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The account name. */
+        account: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successfully fetched account. */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['AccountDetailsSchema'];
+        };
+      };
+      /** @description Account not found. */
+      404: {
         headers: {
           [name: string]: unknown;
         };
